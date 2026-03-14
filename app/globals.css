@@ -1,20 +1,19 @@
-
 @import "tailwindcss";
 
 @theme {
-  --color-background: #121212;
-  --color-foreground: #ffffff;
-  --color-primary: #121212;
-  --color-accent: #D4AF37;
-  --color-emerald-deep: #022C22;
+  --color-background: #fcfcfc;
+  --color-foreground: #0a1128; /* Deep Navy / Ink Black */
+  --color-primary: #fcfcfc;
+  --color-accent: #c5a059; /* Burnished Gold */
+  --color-emerald-deep: #051a15;
 
   --font-serif: var(--font-playfair);
   --font-sans: var(--font-geist-sans);
 }
 
 :root {
-  --background: #121212;
-  --foreground: #ffffff;
+  --background: #fcfcfc;
+  --foreground: #0a1128;
 }
 
 body {
@@ -23,15 +22,25 @@ body {
 }
 
 .glass {
-  background: rgba(18, 18, 18, 0.7);
+  background: rgba(252, 252, 252, 0.85);
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(212, 175, 55, 0.2);
+  border-bottom: 1px solid rgba(10, 17, 40, 0.05);
+}
+
+.hero-word {
+  display: inline-block;
+  opacity: 0;
+  transform: translateY(30px);
 }
 
 @keyframes marquee {
-  0% { transform: translateX(0); }
-  100% { transform: translateX(-50%); }
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
 }
 
 .animate-marquee {
@@ -39,4 +48,3 @@ body {
   white-space: nowrap;
   animation: marquee 30s linear infinite;
 }
-
