@@ -91,6 +91,7 @@ const OsbeliaCastilloContent = () => {
                    fill
                    className="object-cover object-top scale-105"
                    priority
+                   unoptimized
                  />
               </div>
             </div>

@@ -142,7 +142,7 @@ const Navbar = () => {
         </div>
 
         {/* Desktop Navigation */}
-        <div className="hidden xl:flex flex-grow items-center justify-center space-x-2 flex-nowrap overflow-hidden">
+        <div className="hidden xl:flex flex-grow items-center justify-center space-x-2 flex-nowrap">
           {navLinks.map((link) => (
             <div
               key={link.name}
