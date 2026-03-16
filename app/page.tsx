@@ -77,6 +77,66 @@ export default function LandingPage() {
         );
       });
 
+      // 1. Reveal the Image from the Left
+      gsap.fromTo(
+        ".process-image",
+        { x: -60, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".process-image",
+            start: "top 80%",
+          },
+        },
+      );
+
+      // 2. Animate the accent line width
+      gsap.to(".process-line", {
+        width: "80px",
+        duration: 1,
+        delay: 0.5,
+        ease: "power2.inOut",
+        scrollTrigger: {
+          trigger: ".process-image",
+          start: "top 80%",
+        },
+      });
+
+      // 3. Reveal the Text from the Right
+      gsap.fromTo(
+        ".process-text",
+        { x: 60, opacity: 0 },
+        {
+          x: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: ".process-text",
+            start: "top 80%",
+          },
+        },
+      );
+
+      // 4. Staggered reveal for the 4 Cards
+      gsap.fromTo(
+        ".process-card",
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 0.8,
+          stagger: 0.15,
+          ease: "back.out(1.4)", // Gives a slight "bounce" effect
+          scrollTrigger: {
+            trigger: ".process-card",
+            start: "top 85%",
+          },
+        },
+      );
       // Scroll Reveals for Bento Cards
       const bentoCards = document.querySelectorAll(".bento-card");
       gsap.fromTo(
@@ -181,14 +241,19 @@ export default function LandingPage() {
         <div
           className={`flex-1 flex justify-start items-center transition-opacity duration-300 ${isMenuOpen ? "opacity-0 invisible md:visible md:opacity-100" : "opacity-100 visible"}`}
         >
-          <a href="#" className="flex hover:opacity-90 transition-opacity">
+          <a
+            href="#"
+            className="flex transition-all hover:brightness-110 active:scale-95"
+          >
             <Image
               src="/assets/logo.png"
-              alt="Logo"
-              width={200} // Reduced from 240 for better scaling at 100%
-              height={60}
-              className="w-40 md:w-48 h-auto object-contain"
+              alt="Law Office of Osbelia Castillo"
+              width={288} // Set this to your maximum intended width (e.g., 72 * 4 = 288)
+              height={80} // Set this to match your logo's natural aspect ratio
+              className="w-48 md:w-60 h-auto object-contain antialiased"
+              style={{ imageRendering: "auto" }} // Ensures smooth but clear rendering
               priority
+              quality={100} // Boosts quality from the default 75
             />
           </a>
         </div>
@@ -266,7 +331,7 @@ export default function LandingPage() {
           ))}
 
           <div className="pt-6 flex flex-col items-center space-y-4">
-            <p className="text-gray-400 text-[10px] font-light tracking-[0.2em] uppercase">
+            <p className="text-gray-600 text-[10px] font-medium tracking-[0.2em] uppercase">
               Santa Barbara • Oxnard • Ventura
             </p>
           </div>
@@ -305,7 +370,7 @@ export default function LandingPage() {
 
             <div className="h-1 w-16 bg-[#C5A059] mb-8"></div>
 
-            <p className="text-lg md:text-xl text-gray-600 mb-8 font-light leading-relaxed max-w-md">
+            <p className="text-lg md:text-xl text-gray-800 mb-8 font-normal leading-relaxed max-w-md">
               The Law Office of Osbelia Castillo is ready to examine the facts
               of your case in English or Spanish.
             </p>
@@ -443,14 +508,20 @@ export default function LandingPage() {
         </div>
 
         {/* Settlement Ticker */}
-        <div className="absolute bottom-0 left-0 w-full bg-[#0A1128] py-3 overflow-hidden whitespace-nowrap z-20 border-t border-[#C5A059]/20">
-          <div className="gsap-marquee inline-block">
-            {[...settlements, ...settlements].map((item, i) => (
+        <div className="absolute bottom-0 left-0 w-full bg-[#0A1128] py-3 md:py-5 overflow-hidden whitespace-nowrap z-20 border-t border-[#C5A059]/20 shadow-[0_-10px_30px_rgba(0,0,0,0.1)]">
+          <div className="gsap-marquee inline-block will-change-transform">
+            {/* Use a larger multiplier for mobile to ensure no "gap" in the loop */}
+            {[
+              ...settlements,
+              ...settlements,
+              ...settlements,
+              ...settlements,
+            ].map((item, i) => (
               <span
                 key={i}
-                className="inline-flex items-center mx-10 text-white/80 font-medium tracking-widest uppercase text-[10px] md:text-xs"
+                className="inline-flex items-center mx-6 md:mx-10 text-white font-medium tracking-[0.1em] md:tracking-widest uppercase text-[9px] sm:text-xs md:text-sm"
               >
-                <span className="w-1 h-1 rounded-full bg-[#C5A059] mr-3"></span>
+                <span className="w-1.5 h-1.5 md:w-2 md:h-2 rounded-full bg-[#C5A059] mr-2 md:mr-3 shadow-[0_0_8px_rgba(197,160,89,0.5)]"></span>
                 {item}
               </span>
             ))}
@@ -476,7 +547,7 @@ export default function LandingPage() {
           <div className="bg-white rounded-[2.5rem] p-10 md:p-14 shadow-[0_20px_60px_rgba(0,0,0,0.03)] border border-gray-100 relative">
             <div className="absolute top-0 right-0 w-32 h-32 bg-gradient-to-br from-[#C5A059]/20 to-transparent rounded-bl-full rounded-tr-[2.5rem]"></div>
 
-            <div className="space-y-6 text-gray-600 font-light leading-relaxed text-lg relative z-10 mb-10">
+            <div className="space-y-6 text-gray-800 font-normal leading-relaxed text-lg relative z-10 mb-10">
               <p>
                 For over five years, Osbelia has worked as an aggressive civil
                 litigator representing insurance companies in both state and
@@ -524,7 +595,7 @@ export default function LandingPage() {
             </div>
             <div className="hidden md:block">
               <div className="h-[1px] w-24 bg-gray-200 mb-4"></div>
-              <p className="text-gray-400 text-sm italic">
+              <p className="text-gray-700 text-sm italic">
                 Dedicated to your recovery.
               </p>
             </div>
@@ -576,7 +647,7 @@ export default function LandingPage() {
                   <h3 className="text-xl font-serif font-bold text-[#0A1128] mb-3 group-hover:text-[#C5A059] transition-colors duration-300">
                     {practice.title}
                   </h3>
-                  <p className="text-gray-500 font-light leading-relaxed text-sm mb-6 line-clamp-3">
+                  <p className="text-gray-700 font-normal leading-relaxed text-sm mb-6 line-clamp-3">
                     {practice.desc}
                   </p>
 
@@ -612,7 +683,7 @@ export default function LandingPage() {
             </p>
           </div>
 
-          <p className="text-xl md:text-2xl text-gray-600 font-light leading-relaxed mb-10 max-w-2xl mx-auto">
+          <p className="text-xl md:text-2xl text-gray-800 font-normal leading-relaxed mb-10 max-w-2xl mx-auto">
             We are ready to examine the facts of your case, and we will explain
             your options in English or Spanish.
           </p>
@@ -634,69 +705,76 @@ export default function LandingPage() {
         </div>
       </section>
 
-      {/* What We Do & Process Section */}
-      <section id="methodology" className="py-24 lg:py-32 px-6 bg-white reveal">
-        <div className="max-w-7xl mx-auto">
-          {/* Part 1: Text Summary */}
-          <div className="grid grid-cols-1 lg:grid-cols-12 gap-16 items-start mb-24">
-            <div className="lg:col-span-1"></div>
-            <div className="lg:col-span-10 grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-start">
-              <div>
-                <p className="text-[#C5A059] font-bold tracking-[0.3em] uppercase text-[10px] mb-4">
-                  WHAT WE DO
-                </p>
-                <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0A1128] leading-tight mb-8">
-                  Defining Goals, Method & Success Together
-                </h2>
+      <section id="process" className="py-24 px-6 bg-[#FCFCFC] overflow-hidden">
+        <div className="max-w-6xl mx-auto">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center mb-20">
+            {/* Left: Image with reveal-left class */}
+            <div className="process-image opacity-0">
+              <p className="text-[#C5A059] font-bold tracking-[0.3em] uppercase text-[14px] mb-4">
+                What We Do
+              </p>
+              <div className="relative overflow-hidden rounded-2xl">
+                <Image
+                  src="/assets/556-1.png"
+                  alt="The Law Office of Osbelia Castillo"
+                  width={500}
+                  height={500}
+                  className="object-contain object-left"
+                />
               </div>
-
-              <div className="space-y-6 text-gray-600 font-light leading-relaxed text-lg">
-                <p>
-                  By conducting various internal investigation activities and
-                  implementing risk management assessments, our approach saves
-                  our clients time and money over the long term.
-                </p>
-                <p>
-                  Organically grow the holistic world view of disruptive
-                  innovation via workplace diversity and empowerment. Bring to
-                  the table win-win survival strategies to ensure proactive
-                  domination. At the end of the day, going forward.
-                </p>
-              </div>
+              <div className="process-line h-1 w-0 bg-[#C5A059] mt-8"></div>
             </div>
-            <div className="lg:col-span-1"></div>
+
+            {/* Right: Text with reveal-right class */}
+            <div className="process-text opacity-0 space-y-6 text-gray-800 font-normal leading-relaxed text-base md:text-lg">
+              <h2 className="text-4xl md:text-5xl font-serif font-bold text-[#0A1128] leading-tight">
+                Defining Goals, Method & Success Together
+              </h2>
+              <p>
+                By conducting various internal investigation activities and
+                implementing risk management assessments, our approach saves our
+                clients time and money over the long term.
+              </p>
+              <p>
+                Organically grow the holistic world view of disruptive
+                innovation via workplace diversity and empowerment.
+              </p>
+            </div>
           </div>
 
           {/* Part 2: 4-Step Process Grid */}
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
             {[
               {
-                icon: <Scale className="w-8 h-8" />,
+                icon: <Scale className="w-6 h-6" />,
                 title: "Get Your Legal Advice",
               },
               {
-                icon: <Users className="w-8 h-8" />,
+                icon: <Users className="w-6 h-6" />,
                 title: "Work With Expert Lawyers",
               },
               {
-                icon: <Banknote className="w-8 h-8" />,
+                icon: <Banknote className="w-6 h-6" />,
                 title: "Have Great Discounted Rates",
               },
               {
-                icon: <FileText className="w-8 h-8" />,
+                icon: <FileText className="w-6 h-6" />,
                 title: "Review Your Case Documents",
               },
             ].map((step, idx) => (
               <div
                 key={idx}
-                className="group p-10 bg-[#FCFCFC] border border-gray-100 rounded-[2rem] hover:shadow-[0_20px_40px_rgba(0,0,0,0.04)] hover:border-[#C5A059]/30 transition-all duration-500 text-center"
+                className="process-card opacity-0 group relative p-8 bg-white border border-gray-100 rounded-2xl hover:shadow-[0_20px_50px_-10px_rgba(0,0,0,0.05)] transition-all duration-500 overflow-hidden"
               >
-                <div className="w-16 h-16 bg-white rounded-2xl flex items-center justify-center text-[#C5A059] mx-auto mb-8 shadow-sm group-hover:scale-110 transition-transform duration-500 border border-gray-50">
-                  {step.icon}
+                <div className="relative z-10">
+                  <div className="w-14 h-14 bg-[#0A1128] rounded-xl flex items-center justify-center text-[#C5A059] mb-6 shadow-lg group-hover:bg-[#C5A059] group-hover:text-white transition-all duration-500">
+                    {step.icon}
+                  </div>
+                  <h3 className="text-lg font-serif font-bold text-[#0A1128] leading-snug group-hover:text-[#C5A059] transition-colors">
+                    {step.title}
+                  </h3>
+                  <div className="w-8 h-[2px] bg-gray-100 mt-4 group-hover:w-12 group-hover:bg-[#C5A059] transition-all duration-500"></div>
                 </div>
-                <h3 className="text-lg font-serif font-bold text-[#0A1128] leading-tight">
-                  {step.title}
-                </h3>
               </div>
             ))}
           </div>
@@ -717,7 +795,7 @@ export default function LandingPage() {
                   className="object-contain object-left"
                 />
               </div>
-              <p className="text-gray-500 text-sm leading-relaxed max-w-sm font-light">
+              <p className="text-gray-700 text-sm leading-relaxed max-w-sm font-normal">
                 A Santa Barbara, Oxnard & Ventura professional group of lawyers
                 specializing in Personal injury, Vehicular Accidents, Wrongful
                 Death and Workers’ Compensation cases.
@@ -736,7 +814,7 @@ export default function LandingPage() {
               <h3 className="text-[#0A1128] font-serif font-bold text-lg mb-8">
                 Quick Links
               </h3>
-              <ul className="space-y-4 text-sm text-gray-500 font-light">
+              <ul className="space-y-4 text-sm text-gray-700 font-normal">
                 {[
                   { label: "Home", href: "#" },
                   { label: "Attorneys", href: "#about" },
@@ -764,7 +842,7 @@ export default function LandingPage() {
                 Contact Us
               </h3>
               <div className="space-y-6">
-                <p className="text-gray-500 text-sm font-light leading-relaxed">
+                <p className="text-gray-700 text-sm font-normal leading-relaxed">
                   The Law Office of Osbelia Castillo is ready to examine the
                   facts of your case, and we will explain your options in
                   English or Spanish. Call us today for a free consultation!
@@ -791,7 +869,7 @@ export default function LandingPage() {
                   <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
                     Office Address
                   </p>
-                  <p className="text-[#0A1128] text-sm leading-relaxed font-light">
+                  <p className="text-[#0A1128] text-sm leading-relaxed font-normal">
                     <span className="font-bold">
                       Law Offices of Osbelia Castillo
                     </span>
