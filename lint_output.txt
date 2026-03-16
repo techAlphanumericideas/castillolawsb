@@ -1,0 +1,21 @@
+
+> castillolawsb@0.1.0 lint
+> eslint
+
+
+/Users/zippinder/Desktop/zippinder/antigravity/castillolawsb/app/attorneys/osbelia-castillo/OsbeliaCastilloContent.tsx
+  77:19  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+  79:43  error  `"` can be escaped with `&quot;`, `&ldquo;`, `&#34;`, `&rdquo;`  react/no-unescaped-entities
+
+/Users/zippinder/Desktop/zippinder/antigravity/castillolawsb/app/page.tsx
+    3:29  warning  'useState' is defined but never used                                                                                                                                                                                                                                                     @typescript-eslint/no-unused-vars
+    9:3   warning  'Menu' is defined but never used                                                                                                                                                                                                                                                         @typescript-eslint/no-unused-vars
+   10:3   warning  'X' is defined but never used                                                                                                                                                                                                                                                            @typescript-eslint/no-unused-vars
+  292:11  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+  568:19  warning  Using `<img>` could result in slower LCP and higher bandwidth. Consider using `<Image />` from `next/image` or a custom image loader to automatically optimize images. This may incur additional usage or cost from your provider. See: https://nextjs.org/docs/messages/no-img-element  @next/next/no-img-element
+
+/Users/zippinder/Desktop/zippinder/antigravity/castillolawsb/app/practice-areas/personal-injury/PersonalInjuryContent.tsx
+  8:17  warning  'CheckCircle2' is defined but never used  @typescript-eslint/no-unused-vars
+
+✖ 8 problems (2 errors, 6 warnings)
+

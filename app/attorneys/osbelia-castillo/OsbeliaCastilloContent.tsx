@@ -9,6 +9,7 @@ import {
   Mail,
   Phone,
 } from "lucide-react";
+import Link from "next/link";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -73,9 +74,9 @@ const OsbeliaCastilloContent = () => {
               </h1>
               <div className="bg-[#C5A059]/10 border-l-4 border-[#C5A059] p-6 mb-10 hero-reveal max-w-2xl">
                 <p className="text-xl text-white italic font-serif leading-relaxed">
-                  "Having seen how insurance companies defend claims from the
+                  &quot;Having seen how insurance companies defend claims from the
                   inside, I now use that knowledge to fight for the maximum
-                  recovery for my clients."
+                  recovery for my clients.&quot;
                 </p>
               </div>
             </div>
@@ -156,7 +157,8 @@ const OsbeliaCastilloContent = () => {
                   Direct Contact
                 </h3>
                 <div className="space-y-6 relative z-10">
-                  <a
+                  <Link
+                    key="direct-phone"
                     href="tel:8052837656"
                     aria-label="Call Attorney Osbelia Castillo directly"
                     className="flex items-center gap-4 hover:text-[#C5A059] transition-colors group"
@@ -165,7 +167,7 @@ const OsbeliaCastilloContent = () => {
                       <Phone className="w-5 h-5" />
                     </div>
                     <span className="font-bold">805-283-7656</span>
-                  </a>
+                  </Link>
                   <div className="flex items-center gap-4">
                     <div className="w-10 h-10 rounded-full bg-white/10 flex items-center justify-center">
                       <Mail className="w-5 h-5" />

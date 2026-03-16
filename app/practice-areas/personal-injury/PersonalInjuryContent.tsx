@@ -3,8 +3,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Image from "next/image";
-import { Scale, CheckCircle2, ArrowRight, ShieldCheck } from "lucide-react";
+import { Scale, ArrowRight, ShieldCheck } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -67,7 +68,7 @@ const PersonalInjuryContent = () => {
               </h1>
               <p className="text-xl text-white/70 font-light leading-relaxed mb-10 hero-reveal max-w-2xl">
                 Recovering compensation for those injured by negligence. We bring
-                defense-side insights to every plaintiff's case.
+                defense-side insights to every plaintiff&apos;s case.
               </p>
             </div>
 
@@ -123,7 +124,7 @@ const PersonalInjuryContent = () => {
                     href: "/practice-areas/personal-injury/sexual-abuse",
                   },
                 ].map((item, i) => (
-                  <a
+                  <Link
                     key={i}
                     href={item.href}
                     aria-label={`Learn more about our services in ${item.name}`}
@@ -133,7 +134,7 @@ const PersonalInjuryContent = () => {
                       {item.name}
                     </span>
                     <ArrowRight className="w-5 h-5 text-[#C5A059] opacity-0 group-hover:opacity-100 transition-all transform group-hover:translate-x-1" />
-                  </a>
+                  </Link>
                 ))}
               </div>
             </div>

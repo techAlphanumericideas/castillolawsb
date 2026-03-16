@@ -3,6 +3,7 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Image from "next/image";
 import { ShieldAlert, AlertTriangle, ArrowRight, Scale, Gavel } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
@@ -146,16 +147,16 @@ const SexualAbuseContent = () => {
                   Your Path to Restoration
                 </h3>
                 <p className="text-white/70 leading-relaxed mb-6 relative z-10">
-                   You don't have to face this alone. We provide the legal strength and 
+                   You don&apos;t have to face this alone. We provide the legal strength and 
                    personal empathy required to navigate these difficult cases.
                 </p>
-                <a
+                <Link
                   href="tel:8052837656"
                   aria-label="Request a strictly confidential consultation with Osbelia Castillo"
                   className="inline-flex items-center gap-2 text-[#C5A059] font-bold uppercase tracking-widest text-sm relative z-10 hover:text-white transition-colors"
                 >
                   Strictly Confidential Consultation <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

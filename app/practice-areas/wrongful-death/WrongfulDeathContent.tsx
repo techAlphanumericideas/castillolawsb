@@ -3,8 +3,9 @@
 import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
+import Link from "next/link";
 import Image from "next/image";
-import { Scale, Heart, Users, FileText, Banknote, ArrowRight } from "lucide-react";
+import { Heart, Users, FileText, Banknote, ArrowRight } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -94,7 +95,7 @@ const WrongfulDeathContent = () => {
           <div className="lg:col-span-8 space-y-16">
             <div className="reveal-up">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0A1128] mb-8">
-                Securing Your Family's Future
+                Securing Your Family&apos;s Future
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10">
                 While no amount of money can replace a loved one, a wrongful
@@ -147,15 +148,15 @@ const WrongfulDeathContent = () => {
                 <p className="text-white/70 leading-relaxed mb-6 relative z-10">
                   We use our insurance industry knowledge to hold negligent
                   parties accountable, ensuring they pay the full value for the
-                  life they've affected.
+                  life they&apos;ve affected.
                 </p>
-                <a
+                <Link
                   href="tel:8052837656"
                   aria-label="Contact Osbelia Castillo for support with a wrongful death claim"
                   className="inline-flex items-center gap-2 text-[#C5A059] font-bold uppercase tracking-widest text-sm relative z-10"
                 >
                   Get Help Now <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

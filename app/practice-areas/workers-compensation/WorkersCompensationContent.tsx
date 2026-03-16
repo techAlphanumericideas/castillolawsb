@@ -58,7 +58,7 @@ const WorkersCompensationContent = () => {
               <div className="inline-flex items-center gap-3 mb-6 hero-reveal">
                 <div className="h-[1px] w-10 bg-[#C5A059]"></div>
                 <span className="text-[#C5A059] font-sans font-black tracking-[0.4em] uppercase text-[12px]">
-                  Workers' Rights
+                  Workers&apos; Rights
                 </span>
               </div>
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight hero-reveal">
@@ -94,10 +94,10 @@ const WorkersCompensationContent = () => {
           <div className="lg:col-span-8 space-y-16">
             <div className="reveal-up">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0A1128] mb-8">
-                Workers' Compensation Benefits
+                Workers&apos; Compensation Benefits
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10">
-                The workers' comp system is complex and often skewed in favor of
+                The workers&apos; comp system is complex and often skewed in favor of
                 employers. We rebalance the scales to ensure you receive full
                 coverage for your workplace injuries.
               </p>
@@ -122,7 +122,7 @@ const WorkersCompensationContent = () => {
                   {
                     icon: <CheckCircle2 />,
                     title: "Retraining",
-                    desc: "Vouchers for new skill training if you can't return to the same role.",
+                    desc: "Vouchers for new skill training if you can&apos;t return to the same role.",
                   },
                 ].map((item, i) => (
                   <div
@@ -147,7 +147,7 @@ const WorkersCompensationContent = () => {
                   Filing Your Claim
                 </h3>
                 <p className="text-gray-700 leading-relaxed mb-6">
-                  Timing is critical in workers' compensation cases. Follow
+                  Timing is critical in workers&apos; compensation cases. Follow
                   these steps to protect your claim:
                 </p>
                 <div className="space-y-4">

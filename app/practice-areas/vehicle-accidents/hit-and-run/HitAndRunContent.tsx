@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Scale, ShieldAlert, AlertTriangle, ArrowRight, Search } from "lucide-react";
+import { ShieldAlert, AlertTriangle, Search, Scale } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
@@ -71,7 +71,7 @@ const HitAndRunContent = () => {
               </p>
             </div>
 
-            {/* Right Side: Premium Portrait */}
+            {/* Right Side: Portrait */}
             <div className="lg:col-span-5 relative w-full h-[280px] md:h-[300px] lg:h-[300px] hero-portrait flex items-start justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] h-full rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20 bg-white/5 backdrop-blur-sm">
                  <div className="absolute inset-0 bg-gradient-to-b from-[#C5A059]/10 to-transparent"></div>

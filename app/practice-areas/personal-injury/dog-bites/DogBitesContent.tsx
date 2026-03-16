@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import { ShieldAlert, AlertTriangle, ArrowRight, Activity, Bone } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
@@ -54,7 +55,7 @@ const DogBitesContent = () => {
         <div className="absolute top-0 right-0 w-1/2 h-full bg-[#C5A059]/5 transform skew-x-12 translate-x-20"></div>
         <div className="max-w-7xl mx-auto px-6 md:px-12 relative z-10">
           <div className="grid grid-cols-1 lg:grid-cols-12 items-center gap-12 lg:gap-16">
-            <div className="lg:col-span-7">
+            <div className="strong lg:col-span-7">
               <div className="inline-flex items-center gap-3 mb-6 hero-reveal">
                 <div className="h-[1px] w-10 bg-[#C5A059]"></div>
                 <span className="text-[#C5A059] font-sans font-black tracking-[0.4em] uppercase text-[12px]">
@@ -72,7 +73,7 @@ const DogBitesContent = () => {
               </p>
             </div>
 
-            {/* Right Side: Premium Portrait */}
+            {/* Right Side: Portrait */}
             <div className="lg:col-span-5 relative w-full h-[280px] md:h-[300px] lg:h-[300px] hero-portrait flex items-start justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] h-full rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20 bg-white/5 backdrop-blur-sm">
                  <div className="absolute inset-0 bg-gradient-to-b from-[#C5A059]/10 to-transparent"></div>
@@ -101,7 +102,7 @@ const DogBitesContent = () => {
                 California law follows a strict liability rule for dog bites. This means 
                 owners are responsible for the injuries their pets cause, regardless 
                 of whether the dog has bitten before. We help you navigate the claims 
-                process against homeowners' insurance to cover your recovery.
+                process against homeowners&apos; insurance to cover your recovery.
               </p>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -150,13 +151,13 @@ const DogBitesContent = () => {
                    Animal attacks are frightening and can lead to permanent damage. 
                    We are here to manage the insurance companies so you can focus on healing.
                 </p>
-                <a
+                <Link
                   href="tel:8052837656"
                   aria-label="Start your dog bite injury claim by calling Osbelia Castillo"
                   className="inline-flex items-center gap-2 text-[#C5A059] font-bold uppercase tracking-widest text-sm relative z-10 hover:text-white transition-colors"
                 >
                   Start Claim <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

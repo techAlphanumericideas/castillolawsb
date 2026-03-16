@@ -5,12 +5,12 @@ import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
 import Link from "next/link";
-import { ShieldCheck, Truck, Scale, ArrowRight, Package } from "lucide-react";
+import { Car, AlertTriangle } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);
 
-const DefectiveProductsContent = () => {
+const VehicleAccidentsContent = () => {
   const contentRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -59,27 +59,26 @@ const DefectiveProductsContent = () => {
               <div className="inline-flex items-center gap-3 mb-6 hero-reveal">
                 <div className="h-[1px] w-10 bg-[#C5A059]"></div>
                 <span className="text-[#C5A059] font-sans font-black tracking-[0.4em] uppercase text-[12px]">
-                   Product Liability
+                  Practice Areas
                 </span>
               </div>
               <h1 className="text-5xl md:text-7xl font-serif font-bold text-white mb-8 leading-tight hero-reveal">
-                Defective <br />
-                <span className="text-[#C5A059] italic">Products</span>
+                Vehicle <br />
+                <span className="text-[#C5A059] italic">Accidents</span>
               </h1>
               <p className="text-xl text-white/70 font-light leading-relaxed mb-10 hero-reveal max-w-2xl">
-                When corporations put profits over people, we hold them accountable. 
-                Our firm handles complex product liability cases to recover damages 
-                for injuries caused by unsafe consumer goods.
+                Aggressive litigation for car, truck, motorcycle, and pedestrian
+                accidents. We secure the compensation you need to move forward.
               </p>
             </div>
 
-            {/* Right Side: Premium Portrait */}
+            {/* Right Side: Portrait */}
             <div className="lg:col-span-5 relative w-full h-[280px] md:h-[300px] lg:h-[300px] hero-portrait flex items-start justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] h-full rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20 bg-white/5 backdrop-blur-sm">
                  <div className="absolute inset-0 bg-gradient-to-b from-[#C5A059]/10 to-transparent"></div>
                  <Image
                    src="/assets/osbelia-castillo.jpg"
-                   alt="Attorney Osbelia Castillo - Expert in Product Liability and Defective Product Claims"
+                   alt="Lawyer Osbelia Castillo"
                    fill
                    className="object-cover object-top scale-105"
                    priority
@@ -96,69 +95,68 @@ const DefectiveProductsContent = () => {
           <div className="lg:col-span-8 space-y-16">
             <div className="reveal-up">
               <h2 className="text-3xl md:text-4xl font-serif font-bold text-[#0A1128] mb-8">
-                Justice for Unsafe Products
+                Specialized Accident Categories
               </h2>
-              <p className="text-gray-600 text-lg leading-relaxed mb-10">
-                When you buy a product, you have the right to expect it is safe for 
-                its intended use. Whether it&apos;s a defective auto part, a dangerous 
-                household appliance, or unsafe medication, we take on the large 
-                corporations responsible for your harm.
-              </p>
-
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                 {[
                   {
-                    icon: <ShieldCheck className="w-6 h-6" />,
-                    title: "Strict Liability Claims",
-                    desc: "Holding manufacturers responsible for design and manufacturing defects.",
+                    name: "Drunk Driving Accident",
+                    href: "/practice-areas/vehicle-accidents/drunk-driving",
                   },
                   {
-                    icon: <Package className="w-6 h-6" />,
-                    title: "Consumer Safety",
-                    desc: "Fighting against dangerous products that lack proper safety warnings.",
+                    name: "Hit and Run",
+                    href: "/practice-areas/vehicle-accidents/hit-and-run",
                   },
                   {
-                    icon: <Truck className="w-6 h-6" />,
-                    title: "Auto Part Failure",
-                    desc: "Cases involving defective airbags, tires, and mechanical failures.",
+                    name: "Accidents Due to Cell Phone Use",
+                    href: "/practice-areas/vehicle-accidents/cell-phone-use",
                   },
                   {
-                    icon: <Scale className="w-6 h-6" />,
-                    title: "Corporate Accountability",
-                    desc: "Proving that a company knew of defects but failed to issue a recall.",
+                    name: "Truck Accidents",
+                    href: "/practice-areas/vehicle-accidents/truck-accidents",
+                  },
+                  {
+                    name: "Motorcycle Accidents",
+                    href: "/practice-areas/vehicle-accidents/motorcycle-accidents",
+                  },
+                  {
+                    name: "Bicycle Accidents",
+                    href: "/practice-areas/vehicle-accidents/bicycle-accidents",
+                  },
+                  {
+                    name: "Pedestrian Accidents",
+                    href: "/practice-areas/vehicle-accidents/pedestrian-accidents",
                   },
                 ].map((item, i) => (
-                  <div
+                  <Link
                     key={i}
-                    className="p-8 bg-[#FCFCFC] border border-gray-100 rounded-2xl hover:shadow-lg transition-all"
+                    href={item.href}
+                    className="flex items-center justify-between p-6 bg-[#FCFCFC] border border-gray-100 rounded-xl hover:shadow-lg hover:border-[#C5A059] transition-all group"
                   >
-                    <div className="text-[#C5A059] mb-4">{item.icon}</div>
-                    <h4 className="text-xl font-serif font-bold text-[#0A1128] mb-2">
-                       {item.title}
-                    </h4>
-                    <p className="text-gray-500 text-sm leading-relaxed">{item.desc}</p>
-                  </div>
+                    <span className="text-gray-800 font-serif font-bold">
+                      {item.name}
+                    </span>
+                    <Car className="w-5 h-5 text-[#C5A059] opacity-0 group-hover:opacity-100 transition-all" />
+                  </Link>
                 ))}
               </div>
             </div>
 
             <div className="reveal-up">
-              <div className="bg-[#0A1128] text-white p-10 rounded-[2rem] relative overflow-hidden">
-                <h3 className="text-2xl font-serif font-bold mb-4 relative z-10">
-                  Osbelia Castillo&apos;s Commitment
-                </h3>
-                <p className="text-white/70 leading-relaxed mb-6 relative z-10">
-                   Pharmaceutical companies and manufacturers have a duty to ensure 
-                   their products don&apos;t harm consumers. We hold them accountable 
-                   when they prioritize profits over patient safety.
-                </p>
-                <Link
-                  href="tel:8052837656"
-                  aria-label="Contact Osbelia Castillo to discuss your defective product claim"
-                  className="inline-flex items-center gap-2 text-[#C5A059] font-bold uppercase tracking-widest text-sm relative z-10 hover:text-white transition-colors"
-                >
-                  Request Consultation <ArrowRight className="w-4 h-4" />
-                </Link>
+              <div className="flex gap-6 p-10 bg-[#FCFCFC] border border-gray-100 rounded-[2rem]">
+                <div className="w-16 h-16 rounded-2xl bg-[#0A1128] flex items-center justify-center text-[#C5A059] shrink-0">
+                  <AlertTriangle className="w-8 h-8" />
+                </div>
+                <div>
+                  <h3 className="text-2xl font-serif font-bold text-[#0A1128] mb-4">
+                    Meticulous Investigation
+                  </h3>
+                  <p className="text-gray-600 leading-relaxed">
+                    We go beyond the police report, using accident
+                    reconstruction experts and digital forensics to establish
+                    liability in complex vehicle collision cases.
+                  </p>
+                </div>
               </div>
             </div>
           </div>
@@ -174,4 +172,4 @@ const DefectiveProductsContent = () => {
   );
 };
 
-export default DefectiveProductsContent;
+export default VehicleAccidentsContent;

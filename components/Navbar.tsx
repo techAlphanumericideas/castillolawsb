@@ -1,5 +1,7 @@
 "use client";
 
+import Link from "next/link";
+
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { Menu, X, ChevronDown, Phone } from "lucide-react";
@@ -123,7 +125,7 @@ const Navbar = () => {
       >
         {/* Logo */}
         <div className="flex-none flex items-center pr-10 border-r border-gray-100">
-          <a
+          <Link
             href="/"
             className="flex transition-all hover:brightness-110 active:scale-95"
           >
@@ -136,7 +138,7 @@ const Navbar = () => {
               priority
               unoptimized
             />
-          </a>
+          </Link>
         </div>
 
         {/* Desktop Navigation */}
@@ -148,7 +150,7 @@ const Navbar = () => {
               onMouseEnter={() => setActiveDropdown(link.name)}
               onMouseLeave={() => setActiveDropdown(null)}
             >
-              <a
+              <Link
                 href={link.name === "Attorneys" ? "/attorneys/osbelia-castillo" : link.href}
                 className={`px-5 py-3 flex items-center gap-2 text-[14px] font-bold tracking-widest uppercase transition-colors whitespace-nowrap ${
                   activeDropdown === link.name ? "text-black" : "text-gray-700 hover:text-black"
@@ -165,7 +167,7 @@ const Navbar = () => {
                 {(!link.dropdownItems || link.name === "Attorneys") && (
                   <span className="absolute bottom-1 left-5 right-5 h-0.5 bg-[#C5A059] scale-x-0 group-hover:scale-x-100 transition-transform origin-left"></span>
                 )}
-              </a>
+              </Link>
 
               {/* Mega Dropdown / Submenu */}
               {link.dropdownItems && link.name !== "Attorneys" && (
@@ -174,13 +176,13 @@ const Navbar = () => {
                 >
                   <div className="bg-white border border-gray-100 shadow-2xl rounded-xl overflow-hidden py-3">
                     {link.dropdownItems.map((item) => (
-                      <a
+                      <Link
                         key={item.name}
                         href={item.href}
                         className="block px-8 py-4 text-[13px] font-medium text-gray-600 hover:bg-gray-50 hover:text-[#C5A059] transition-all border-l-4 border-transparent hover:border-[#C5A059]"
                       >
                         {item.name}
-                      </a>
+                      </Link>
                     ))}
                   </div>
                 </div>
@@ -191,13 +193,13 @@ const Navbar = () => {
 
         {/* CTA Button */}
         <div className="hidden lg:flex flex-none items-center pl-10 border-l border-gray-100">
-          <a
+          <Link
             href="tel:8052837656"
             className="flex items-center gap-3 px-10 py-4 bg-[#0A1128] text-white text-[15px] font-black tracking-widest uppercase rounded-full transition-all duration-300 hover:bg-[#C5A059] hover:shadow-[0_15px_30px_rgba(197,160,89,0.3)] hover:-translate-y-1"
           >
             <Phone className="w-5 h-5 text-[#C5A059]" />
             805-283-7656
-          </a>
+          </Link>
         </div>
 
         {/* Mobile Toggle */}
@@ -230,7 +232,7 @@ const Navbar = () => {
                 {link.dropdownItems ? (
                   <div className="space-y-4">
                      <div className="flex items-center justify-between">
-                      <a 
+                      <Link 
                         href={link.href}
                         onClick={() => setIsMenuOpen(false)}
                         className="flex items-center gap-4 text-2xl font-serif font-bold text-[#0A1128]"
@@ -239,7 +241,7 @@ const Navbar = () => {
                           0{idx + 1}
                         </span>
                         {link.name}
-                      </a>
+                      </Link>
                       <button
                         onClick={() =>
                           setMobileExpanded(
@@ -258,19 +260,19 @@ const Navbar = () => {
                       className={`space-y-2 pl-8 overflow-hidden transition-all duration-500 ${mobileExpanded === link.name ? "max-h-[500px] opacity-100" : "max-h-0 opacity-0"}`}
                     >
                       {link.dropdownItems.map((subItem) => (
-                        <a
+                        <Link
                           key={subItem.name}
                           href={subItem.href}
                           onClick={() => setIsMenuOpen(false)}
                           className="block text-lg text-gray-600 hover:text-[#C5A059] transition-colors py-1"
                         >
                           {subItem.name}
-                        </a>
+                        </Link>
                       ))}
                     </div>
                   </div>
                 ) : (
-                  <a
+                  <Link
                     href={link.href}
                     onClick={() => setIsMenuOpen(false)}
                     className="flex items-center gap-4 text-2xl font-serif font-bold text-[#0A1128] hover:text-[#C5A059] transition-colors"
@@ -279,20 +281,20 @@ const Navbar = () => {
                       0{idx + 1}
                     </span>
                     {link.name}
-                  </a>
+                  </Link>
                 )}
               </div>
             ))}
           </div>
 
           <div className="mt-12 space-y-8">
-            <a
+            <Link
               href="tel:8052837656"
               className="w-full py-5 bg-[#0A1128] text-white text-[11px] font-black tracking-[0.3em] uppercase rounded-xl flex items-center justify-center gap-3 shadow-xl active:scale-95 transition-all"
             >
               <Phone className="w-4 h-4 text-[#C5A059]" />
               Call Now: 805-283-7656
-            </a>
+            </Link>
           </div>
         </div>
       </div>

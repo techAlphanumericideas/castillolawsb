@@ -4,7 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
-import { Scale, ShieldAlert, AlertTriangle, ArrowRight, Truck } from "lucide-react";
+import { Scale, ShieldAlert, AlertTriangle, Truck } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
 gsap.registerPlugin(ScrollTrigger);

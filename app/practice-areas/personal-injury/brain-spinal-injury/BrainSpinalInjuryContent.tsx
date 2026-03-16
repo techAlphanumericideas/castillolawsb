@@ -4,6 +4,7 @@ import { useEffect, useRef } from "react";
 import { gsap } from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import Image from "next/image";
+import Link from "next/link";
 import { Activity, Brain, ShieldAlert, ArrowRight, HeartPulse } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
@@ -71,7 +72,7 @@ const BrainSpinalInjuryContent = () => {
               </p>
             </div>
 
-            {/* Right Side: Premium Portrait */}
+            {/* Right Side: Portrait */}
             <div className="lg:col-span-5 relative w-full h-[280px] md:h-[300px] lg:h-[300px] hero-portrait flex items-start justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] h-full rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20 bg-white/5 backdrop-blur-sm">
                  <div className="absolute inset-0 bg-gradient-to-b from-[#C5A059]/10 to-transparent"></div>
@@ -97,7 +98,7 @@ const BrainSpinalInjuryContent = () => {
                 Compassionate Advocacy for Serious Trauma
               </h2>
               <p className="text-gray-600 text-lg leading-relaxed mb-10">
-                Brain and spinal cord injuries often involve permanent changes to one's 
+                Brain and spinal cord injuries often involve permanent changes to one&apos;s 
                 quality of life. Our firm understands the medical complexities and the 
                 lifelong costs associated with these catastrophic events.
               </p>
@@ -148,13 +149,13 @@ const BrainSpinalInjuryContent = () => {
                   We leverage medical experts and life-care planners to build a case that 
                   accurately reflects the true cost of your injury.
                 </p>
-                <a
+                <Link
                   href="tel:8052837656"
                   aria-label="Contact Osbelia Castillo for representation in brain or spinal injury cases"
                   className="inline-flex items-center gap-2 text-[#C5A059] font-bold uppercase tracking-widest text-sm relative z-10 hover:text-white transition-colors"
                 >
                   Consult an Expert <ArrowRight className="w-4 h-4" />
-                </a>
+                </Link>
               </div>
             </div>
           </div>

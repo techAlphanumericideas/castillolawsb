@@ -73,7 +73,7 @@ const SlipAndFallContent = () => {
               </p>
             </div>
 
-            {/* Right Side: Replicated Homepage Portrait Style */}
+            {/* Right Side: Portrait */}
             <div className="lg:col-span-5 relative w-full h-[280px] md:h-[300px] lg:h-[300px] hero-portrait flex items-start justify-center lg:justify-end">
               <div className="relative w-full max-w-[400px] h-full rounded-[2rem] overflow-hidden shadow-[0_30px_60px_rgba(0,0,0,0.3)] border border-white/20 bg-white/5 backdrop-blur-sm">
                  <div className="absolute inset-0 bg-gradient-to-b from-[#C5A059]/10 to-transparent"></div>
@@ -105,7 +105,7 @@ const SlipAndFallContent = () => {
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed font-normal">
                 Premises liability arises when an injury is caused by an unsafe
-                or defective condition on someone's property. Owners have the
+                or defective condition on someone&apos;s property. Owners have the
                 legal duty to keep their property safe for visitors.
               </p>
               <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
@@ -138,9 +138,7 @@ const SlipAndFallContent = () => {
                 </h2>
               </div>
               <p className="text-gray-600 text-lg mb-8 leading-relaxed">
-                To win a compensation claim, we must demonstrate that the
-                property owner knew or should have known about the dangerous
-                condition and failed to address it.
+                To win a compensation claim, we must demonstrate that the property owner knew or should have known about the dangerous condition and failed to address it.
               </p>
               <div className="space-y-4">
                 {[

@@ -66,8 +66,8 @@ const PedestrianAccidentsContent = () => {
                 <span className="text-[#C5A059] italic">Accidents</span>
               </h1>
               <p className="text-xl text-white/70 font-light leading-relaxed mb-10 hero-reveal max-w-2xl">
-                Walking shouldn't be dangerous, but driver negligence makes it so. 
-                We fight for pedestrians who have been struck by cars, trucks, and buses.
+                Protecting those on foot. We hold negligent drivers accountable
+                for failing to yield and violating a pedestrian&apos;s right of way.
               </p>
             </div>
 
