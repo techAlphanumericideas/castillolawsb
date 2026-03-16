@@ -283,24 +283,15 @@ export default function LandingPage() {
         ref={heroRef}
         className="relative min-h-screen flex flex-col justify-center pt-32 pb-32 bg-white overflow-hidden"
       >
-        {/* Architectural Background with Parallax effect */}
-        <div className="absolute inset-0 z-0 opacity-[0.03] lg:opacity-[0.05]">
-          <img
-            src="/assets/hero-background.png"
-            alt="Hero background"
-            className="w-full h-full object-cover scale-110"
-          />
-          <div className="absolute inset-0 bg-gradient-to-br from-white via-transparent to-white/50"></div>
-        </div>
-
         {/* Decorative Ambient Accents */}
         <div className="absolute top-[20%] -left-[10%] w-[40%] h-[40%] bg-[#C5A059]/5 blur-[120px] rounded-full pointer-events-none"></div>
         <div className="absolute bottom-[10%] -right-[5%] w-[30%] h-[30%] bg-[#0A1128]/5 blur-[120px] rounded-full pointer-events-none"></div>
 
         <div className="relative z-10 max-w-7xl mx-auto w-full px-6 md:px-12 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-16 items-center">
-          {/* Left Text: High-Impact Typography */}
-          <div className="lg:col-span-7 text-left">
-            <div className="inline-flex items-center gap-3 mb-4 opacity-0 reveal">
+          {/* Left Content: Text & Prominent Portrait */}
+          <div className="lg:col-span-7 grid grid-cols-1 md:grid-cols-12 gap-8 items-center">
+            <div className="md:col-span-8 text-left">
+              <div className="inline-flex items-center gap-3 mb-4 opacity-0 reveal">
               <div className="h-[1px] w-10 bg-[#C5A059]"></div>
               <span className="text-[#C5A059] font-sans font-black tracking-[0.4em] uppercase text-[12px]">
                 Prestige Legal Representation
@@ -341,8 +332,21 @@ export default function LandingPage() {
             </div>
           </div>
 
-          {/* Right Form: Glassmorphism Luxury Container */}
-          <div className="lg:col-span-5 relative z-10 mb-2">
+          {/* Prominent Portrait Column */}
+          <div className="md:col-span-4 relative h-[300px] md:h-[450px] reveal overflow-hidden rounded-2xl group">
+            <div className="w-full h-full opacity-10">
+              <img
+                src="/assets/hero-background.png"
+                alt="Osbelia Castillo Portrait"
+                className="w-full h-full object-cover scale-110 transition-transform duration-1000 group-hover:scale-105"
+              />
+              <div className="absolute inset-0 bg-gradient-to-t from-white/20 via-transparent to-white/50"></div>
+            </div>
+          </div>
+        </div>
+
+        {/* Right Form: Glassmorphism Luxury Container */}
+        <div className="lg:col-span-5 relative z-10 mb-2">
             <div className="bg-white/70 backdrop-blur-xl border border-white/40 p-8 md:p-10 rounded-[1.25rem] shadow-[0_20px_60px_rgba(10,17,40,0.05)] relative md:h-[480px] overflow-hidden reveal flex flex-col justify-center">
               {/* Internal Accent */}
               <div className="absolute top-0 right-0 w-32 h-32 bg-[#C5A059]/10 rounded-full blur-3xl"></div>
