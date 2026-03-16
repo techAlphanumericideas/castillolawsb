@@ -18,12 +18,9 @@ import Image from "next/image";
 gsap.registerPlugin(ScrollTrigger);
 
 export default function LandingPage() {
-  const [isMenuOpen, setIsMenuOpen] = useState(false);
   const heroRef = useRef<HTMLDivElement>(null);
   const headlineRef = useRef<HTMLHeadingElement>(null);
   const ctaRef = useRef<HTMLDivElement>(null);
-  const navbarRef = useRef<HTMLDivElement>(null);
-  const menuRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -269,31 +266,6 @@ export default function LandingPage() {
     return () => ctx.revert();
   }, []);
 
-  useEffect(() => {
-    if (isMenuOpen) {
-      // Prevent scrolling when menu is open
-      document.body.style.overflow = "hidden";
-      gsap.to(menuRef.current, {
-        x: "0%",
-        opacity: 1,
-        visibility: "visible",
-        duration: 0.5,
-        ease: "power3.out",
-      });
-    } else {
-      document.body.style.overflow = "auto";
-      gsap.to(menuRef.current, {
-        x: "100%",
-        opacity: 0,
-        duration: 0.5,
-        ease: "power3.in",
-        onComplete: () => {
-          gsap.set(menuRef.current, { visibility: "hidden" });
-        },
-      });
-    }
-  }, [isMenuOpen]);
-
   const settlements = [
     "$3,500,000 Car Accident",
     "$3,400,000 Spinal Injury",
@@ -304,121 +276,12 @@ export default function LandingPage() {
 
   return (
     <main className="relative bg-background text-foreground overflow-x-hidden">
-      {/* Navbar */}
-      <nav
-        ref={navbarRef}
-        className={`fixed top-0 left-0 w-full bg-white border-b border-gray-100 px-6 md:px-12 py-4 flex items-center shadow-sm transition-all duration-300 ${
-          isMenuOpen ? "z-[120]" : "z-50"
-        }`}
-      >
-        {/* Left: Logo - Flex-1 ensures it takes equal space to the right side */}
-        <div
-          className={`flex-1 flex justify-start items-center transition-opacity duration-300 ${isMenuOpen ? "opacity-0 invisible md:visible md:opacity-100" : "opacity-100 visible"}`}
-        >
-          <a
-            href="#"
-            className="flex transition-all hover:brightness-110 active:scale-95"
-          >
-            <Image
-              src="/assets/logo.png"
-              alt="Law Office of Osbelia Castillo"
-              width={288} // Set this to your maximum intended width (e.g., 72 * 4 = 288)
-              height={80} // Set this to match your logo's natural aspect ratio
-              className="w-48 md:w-60 h-auto object-contain antialiased"
-              style={{ imageRendering: "auto" }} // Ensures smooth but clear rendering
-              priority
-              unoptimized
-              quality={100} // Boosts quality from the default 75
-            />
-          </a>
-        </div>
-
-        {/* Center: Navlinks - Flex-none so it only takes what it needs */}
-        <div className="hidden md:flex flex-none items-center space-x-8 lg:space-x-12 text-[12px] lg:text-[13px] font-semibold tracking-widest uppercase text-gray-800">
-          {[
-            { name: "Home", href: "#home" },
-            { name: "About", href: "#about" },
-            { name: "Practices", href: "#practices" },
-          ].map((item) => (
-            <a
-              key={item.name}
-              href={item.href}
-              className="relative group transition-colors hover:text-black"
-            >
-              {item.name}
-              <span className="absolute -bottom-1 left-0 w-0 h-0.5 bg-[#C5A059] transition-all duration-300 group-hover:w-full"></span>
-            </a>
-          ))}
-        </div>
-
-        {/* Right: Button - Flex-1 matches the Left side to keep center links perfectly centered */}
-        <div className="hidden md:flex flex-1 justify-end items-center">
-          <a
-            href="#contact"
-            className="px-6 lg:px-8 py-3 bg-[#0A1128] text-white text-[10px] lg:text-[11px] font-bold tracking-[0.2em] uppercase rounded-full transition-all duration-300 hover:bg-[#C5A059] hover:shadow-lg hover:-translate-y-0.5"
-          >
-            Free Consultation
-          </a>
-        </div>
-
-        {/* Mobile Toggle */}
-        <div
-          className="md:hidden ml-auto flex items-center z-[110]"
-          onClick={() => setIsMenuOpen(!isMenuOpen)}
-        >
-          {isMenuOpen ? (
-            <X className="w-7 h-7 text-[#0A1128] cursor-pointer hover:text-[#C5A059] transition-all duration-300 transform rotate-0" />
-          ) : (
-            <Menu className="w-7 h-7 text-[#0A1128] cursor-pointer hover:text-[#C5A059] transition-all duration-300" />
-          )}
-        </div>
-      </nav>
-
-      {/* Mobile Menu Overlay */}
-      <div
-        ref={menuRef}
-        className="fixed inset-0 z-[100] bg-white md:hidden h-screen w-screen"
-        style={{
-          transform: "translateX(100%)",
-          opacity: 0,
-          visibility: "hidden",
-        }}
-      >
-        <div className="flex flex-col h-full pt-40 px-6 space-y-12 items-center text-center">
-          {[
-            { name: "Home", href: "#home" },
-            { name: "About", href: "#about" },
-            { name: "Practices", href: "#practices" },
-            { name: "Free Consultation", href: "#contact" },
-          ].map((item, idx) => (
-            <a
-              key={item.name}
-              href={item.href}
-              onClick={() => setIsMenuOpen(false)}
-              className="text-2xl font-serif font-bold text-[#0A1128] hover:text-[#C5A059] transition-colors flex flex-col items-center gap-2 group"
-            >
-              <span className="text-[#C5A059] text-[10px] font-sans tracking-[0.3em] uppercase opacity-70">
-                0{idx + 1}
-              </span>
-              {item.name}
-              <div className="h-[1px] w-0 bg-[#C5A059] group-hover:w-full transition-all duration-300"></div>
-            </a>
-          ))}
-
-          <div className="pt-6 flex flex-col items-center space-y-4">
-            <p className="text-gray-600 text-[10px] font-medium tracking-[0.2em] uppercase">
-              Santa Barbara • Oxnard • Ventura
-            </p>
-          </div>
-        </div>
-      </div>
-
       {/* Hero Section */}
 
       <section
         id="home"
         ref={heroRef}
-        className="relative min-h-screen flex flex-col justify-center pt-20 pb-20 bg-white overflow-hidden"
+        className="relative min-h-screen flex flex-col justify-center pt-32 pb-32 bg-white overflow-hidden"
       >
         {/* Architectural Background with Parallax effect */}
         <div className="absolute inset-0 z-0 opacity-[0.03] lg:opacity-[0.05]">
@@ -930,125 +793,6 @@ export default function LandingPage() {
           </div>
         </div>
       </section>
-
-      {/* Footer */}
-      <footer className="bg-[#FCFCFC] border-t border-gray-100 pt-20 pb-10 px-6">
-        <div className="max-w-7xl mx-auto">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-16 mb-20">
-            {/* Column 1: Logo & About */}
-            <div className="lg:col-span-4 space-y-8">
-              <div className="h-10 relative">
-                <Image
-                  src="/assets/logo.png"
-                  alt="The Law Office of Osbelia Castillo"
-                  fill
-                  unoptimized
-                  className="object-contain object-left"
-                />
-              </div>
-              <p className="text-gray-700 text-sm leading-relaxed max-w-sm font-normal">
-                A Santa Barbara, Oxnard & Ventura professional group of lawyers
-                specializing in Personal injury, Vehicular Accidents, Wrongful
-                Death and Workers’ Compensation cases.
-              </p>
-              <a
-                href="#home"
-                className="text-[#C5A059] text-xs font-bold uppercase tracking-widest hover:text-[#0A1128] transition-colors flex items-center gap-2 group"
-              >
-                Read More
-                <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
-              </a>
-            </div>
-
-            {/* Column 2: Quick Links */}
-            <div className="lg:col-span-3">
-              <h3 className="text-[#0A1128] font-serif font-bold text-lg mb-8">
-                Quick Links
-              </h3>
-              <ul className="space-y-4 text-sm text-gray-700 font-normal">
-                {[
-                  { label: "Home", href: "#" },
-                  { label: "Attorneys", href: "#about" },
-                  { label: "Personal Injury", href: "#practices" },
-                  { label: "Vehicular Accident", href: "#practices" },
-                  { label: "Wrongful Death", href: "#practices" },
-                  { label: "Worker’s Compensation", href: "#practices" },
-                  { label: "News", href: "#" },
-                ].map((link, idx) => (
-                  <li key={idx}>
-                    <a
-                      href={link.href}
-                      className="hover:text-[#C5A059] transition-colors"
-                    >
-                      {link.label}
-                    </a>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Column 3: Contact Us */}
-            <div className="lg:col-span-5">
-              <h3 className="text-[#0A1128] font-serif font-bold text-lg mb-8">
-                Contact Us
-              </h3>
-              <div className="space-y-6">
-                <p className="text-gray-700 text-sm font-normal leading-relaxed">
-                  The Law Office of Osbelia Castillo is ready to examine the
-                  facts of your case, and we will explain your options in
-                  English or Spanish. Call us today for a free consultation!
-                </p>
-
-                <div className="flex items-center gap-4 group">
-                  <div className="w-10 h-10 rounded-full bg-[#C5A059]/10 flex items-center justify-center text-[#C5A059] group-hover:bg-[#C5A059] group-hover:text-white transition-all duration-300">
-                    <Phone className="w-4 h-4" />
-                  </div>
-                  <div>
-                    <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
-                      Phone Number
-                    </p>
-                    <a
-                      href="tel:8052837656"
-                      className="text-[#0A1128] font-serif font-bold text-lg"
-                    >
-                      805-283-7656
-                    </a>
-                  </div>
-                </div>
-
-                <div className="space-y-2">
-                  <p className="text-[10px] uppercase font-bold text-gray-400 tracking-widest">
-                    Office Address
-                  </p>
-                  <p className="text-[#0A1128] text-sm leading-relaxed font-normal">
-                    <span className="font-bold">
-                      Law Offices of Osbelia Castillo
-                    </span>
-                    <br />
-                    315 Meigs Rd, Ste A142
-                    <br />
-                    Santa Barbara, California 93109
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div className="pt-8 border-t border-gray-100 flex flex-col md:flex-row justify-between items-center gap-4 text-[10px] uppercase font-bold tracking-[0.2em] text-gray-400">
-            <p>
-              © 2026 The Law Office of Osbelia Castillo. All Rights Reserved.
-            </p>
-            <div className="flex gap-8">
-              <a href="#" className="hover:text-[#C5A059] transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-[#C5A059] transition-colors">
-                Terms of Use
-              </a>
-            </div>
-          </div>
-        </div>
-      </footer>
     </main>
   );
 }
