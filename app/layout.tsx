@@ -15,6 +15,10 @@ const geistSans = Geist({
 export const metadata: Metadata = {
   title: "Castillo Law | Modern Legal Excellence",
   description: "Experience premium legal representation with a modern touch. Specialized in Personal Injury and Workers' Compensation.",
+  icons: {
+    icon: "/ref-icon.png",
+    apple: "/ref-icon.png",
+  },
 };
 
 export default function RootLayout({
