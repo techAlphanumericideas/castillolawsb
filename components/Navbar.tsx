@@ -11,7 +11,7 @@ const navLinks = [
   { name: "Home", href: "/" },
   {
     name: "Attorneys",
-    href: "/attorneys",
+    href: "/attorneys/osbelia-castillo",
     dropdownItems: [
       { name: "Osbelia Castillo", href: "/attorneys/osbelia-castillo" },
     ],
