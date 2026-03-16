@@ -301,6 +301,7 @@ export default function LandingPage() {
               className="w-48 md:w-60 h-auto object-contain antialiased"
               style={{ imageRendering: "auto" }} // Ensures smooth but clear rendering
               priority
+              unoptimized
               quality={100} // Boosts quality from the default 75
             />
           </a>
@@ -851,6 +852,7 @@ export default function LandingPage() {
                   src="/assets/logo.png"
                   alt="The Law Office of Osbelia Castillo"
                   fill
+                  unoptimized
                   className="object-contain object-left"
                 />
               </div>
