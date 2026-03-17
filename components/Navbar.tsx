@@ -151,7 +151,7 @@ const Navbar = () => {
             >
               <Link
                 href={link.name === "Attorneys" ? "/attorneys/osbelia-castillo" : link.href}
-                className={`px-5 py-3 flex items-center gap-2 text-[14px] font-bold tracking-widest uppercase transition-colors whitespace-nowrap ${activeDropdown === link.name ? "text-black" : "text-gray-700 hover:text-black"
+                className={`px-1 py-1 flex items-center gap-1 text-[12px] font-bold tracking-widest uppercase transition-colors whitespace-nowrap ${activeDropdown === link.name ? "text-black" : "text-gray-700 hover:text-black"
                   }`}
               >
                 {link.name}
